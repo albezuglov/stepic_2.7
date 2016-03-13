@@ -17,14 +17,15 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 from qa.views import defaultOk
+import myauth.views as myauth
 
 urlpatterns = [
     url(r'^question/', include('qa.urls')),
     url(r'^', include('qa.urls')),
-    url(r'^login/', defaultOk),
-    url(r'^signup/', defaultOk),
     url(r'^ask/', defaultOk),
     url(r'^popular/', defaultOk),
     url(r'^new/', defaultOk),
+    url(r'^signup/', myauth.signup, name="mysignup"),
+    url(r'^login/', myauth.mylogin, name="mylogin"),
     url(r'^admin/', admin.site.urls),
 ]

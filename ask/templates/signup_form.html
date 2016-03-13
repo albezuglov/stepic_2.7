@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block main %}
+  <form class="signup_form" method="post" action="{% url 'mysignup' %}">
+  {% csrf_token %}
+  {{ form.as_ul }}
+  <button type="submit" class="btn submit">Сохранить </button>
+{% endblock %}
