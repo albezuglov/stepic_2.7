@@ -3,6 +3,11 @@
   <head>
   </head>
   <body>
+{% if user.is_authenticated %}
+    <p>Welcome, {{ user.username }}. Thanks for logging in.</p>
+{% else %}
+    <p>Welcome, new user. Please <a href="{% url 'mysignup' %}">signup</a> or <a href="{% url 'mylogin' %}">log in.</a></p>
+{% endif %}
    {% block main %}{% endblock %}
   </body>
 </html>

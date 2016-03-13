@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block main %}
+        {{ question.author.name }}
 	<div class="question">
            {{ question.title }}<br>
            {{ question.text }}
@@ -11,7 +12,7 @@
   </form>
 	   <ul class="answers">
 	    {% for answer in question.answer_set.all %}
-               <li class="answer">{{answer.text}}</li>
+               <li class="answer">{{answer.author.username}} - {{answer.text}}</li>
             {% endfor %}
            </ul>
         </div>

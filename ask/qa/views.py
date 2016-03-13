@@ -43,6 +43,7 @@ def question(request, *args, **kwargs):
 def ask_form(request, *args, **kwargs):
     if request.method == 'POST':
         form = AskForm(request.POST)
+        form._user = request.user
         if form.is_valid():
             question = form.save()
             url = question.get_absolute_url()
@@ -56,6 +57,7 @@ def ask_form(request, *args, **kwargs):
 def answer_form(request, *args, **kwargs):
     if request.method == 'POST':
         form = AnswerForm(request.POST)
+        form._user = request.user
         if form.is_valid():
             answer = form.save()
             url = answer.question.get_absolute_url()

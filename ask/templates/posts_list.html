@@ -18,7 +18,7 @@
        </div>
        <div class="posts list">
 	{% for post in posts %}
-	  <div class="post">{{post.title}} <a href="{% url 'question' post.id %}">More</a></div>
+	  <div class="post">{{ post.author.username }}<br>{{post.title}} <a href="{% url 'question' post.id %}">More</a></div>
         {% endfor %}
        </div>
 {% endblock %}
